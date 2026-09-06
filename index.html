@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pink Garden 🦋</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: "Segoe UI", sans-serif;
+
+            background:
+                radial-gradient(circle at 20% 20%, #ffd6e7 0%, transparent 30%),
+                radial-gradient(circle at 80% 30%, #ffc1dc 0%, transparent 30%),
+                linear-gradient(135deg, #fff0f7, #ffd1e3);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .garden {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Flowers */
+
+        .flower {
+            position: absolute;
+            font-size: 45px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .flower1 {
+            bottom: 20px;
+            left: 8%;
+        }
+
+        .flower2 {
+            bottom: 50px;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        .flower3 {
+            top: 15%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+        .flower4 {
+            top: 10%;
+            right: 7%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* Butterflies */
+
+        .butterfly {
+            position: absolute;
+            font-size: 35px;
+            animation: butterflyMove 8s ease-in-out infinite;
+        }
+
+        .butterfly1 {
+            top: 15%;
+            left: 15%;
+        }
+
+        .butterfly2 {
+            top: 65%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .butterfly3 {
+            top: 35%;
+            right: 5%;
+            animation-delay: 4s;
+        }
+
+        @keyframes butterflyMove {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(40px, -30px) rotate(10deg);
+            }
+
+            50% {
+                transform: translate(0, -60px) rotate(-10deg);
+            }
+
+            75% {
+                transform: translate(-40px, -30px) rotate(10deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+        }
+
+        /* Main card */
+
+        .card {
+            position: relative;
+            z-index: 10;
+
+            width: min(90%, 550px);
+            padding: 50px 30px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+
+            box-shadow: 0 20px 50px rgba(190, 80, 130, 0.2);
+        }
+
+        .card h1 {
+            color: #d94f87;
+            font-size: clamp(28px, 6vw, 42px);
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #9c4a70;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            border: none;
+            padding: 14px 30px;
+
+            border-radius: 30px;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        #yesButton {
+            background: #ff6fa8;
+            color: white;
+
+            box-shadow: 0 8px 20px rgba(255, 80, 140, 0.3);
+        }
+
+        #yesButton:hover {
+            transform: scale(1.08);
+        }
+
+        #noButton {
+            background: white;
+            color: #d94f87;
+
+            border: 2px solid #ff9bc3;
+        }
+
+        /* Page 2 */
+
+        #page2 {
+            display: none;
+        }
+
+        .date-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .date-option {
+            width: 100%;
+            background: #fff;
+            color: #d94f87;
+            border: 2px solid #ffc0d9;
+        }
+
+        .date-option:hover {
+            background: #ffedf5;
+            transform: scale(1.03);
+        }
+
+        @media (max-width: 600px) {
+            .buttons {
+                gap: 10px;
+            }
+
+            button {
+                padding: 12px 22px;
+            }
+
+            .butterfly {
+                font-size: 28px;
+            }
+
+            .flower {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="garden">
+
+        <!-- Decorations -->
+
+        <div class="flower flower1">🌷</div>
+        <div class="flower flower2">🌸</div>
+        <div class="flower flower3">🌺</div>
+        <div class="flower flower4">🌷</div>
+
+        <div class="butterfly butterfly1">🦋</div>
+        <div class="butterfly butterfly2">🦋</div>
+        <div class="butterfly butterfly3">🦋</div>
+
+
+        <!-- PAGE 1 -->
+
+        <div class="card" id="page1">
+
+            <h1>Hey you... 💗</h1>
+
+            <p>
+                Are you mad that I ate food without you?
+            </p>
+
+            <div class="buttons">
+
+                <button id="yesButton">
+                    Yes 💕
+                </button>
+
+                <button id="noButton">
+                    No 😇
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PAGE 2 -->
+
+        <div class="card" id="page2">
+
+            <h1>Yay! 🥰</h1>
+
+            <p>
+                Sooo... when do you want to go out and eat with me? 🍽️💗
+            </p>
+
+            <div class="date-options">
+
+                <button class="date-option">
+                    This week 🌸
+                </button>
+
+                <button class="date-option">
+                    This weekend 🦋
+                </button>
+
+                <button class="date-option">
+                    Whenever you want 💕
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const yesButton = document.getElementById("yesButton");
+        const noButton = document.getElementById("noButton");
+
+        const page1 = document.getElementById("page1");
+        const page2 = document.getElementById("page2");
+
+
+        /*
+         * YES BUTTON
+         */
+
+        yesButton.addEventListener("click", function () {
+
+            page1.style.display = "none";
+
+            page2.style.display = "block";
+
+        });
+
+
+        /*
+         * NO BUTTON
+         *
+         * Every time the mouse gets close,
+         * the button moves away and gets smaller.
+         */
+
+        let noSize = 1;
+
+        noButton.addEventListener("mouseenter", function () {
+
+            noSize -= 0.12;
+
+            if (noSize < 0.25) {
+                noSize = 0.25;
+            }
+
+            noButton.style.transform = `scale(${noSize})`;
+
+            const maxX = window.innerWidth - noButton.offsetWidth - 30;
+            const maxY = window.innerHeight - noButton.offsetHeight - 30;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            noButton.style.position = "fixed";
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+
+        });
+
+
+        /*
+         * Date buttons
+         */
+
+        const dateOptions = document.querySelectorAll(".date-option");
+
+        dateOptions.forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                button.innerHTML = "Perfect! 💗🦋";
+
+                dateOptions.forEach(otherButton => {
+
+                    if (otherButton !== button) {
+                        otherButton.style.display = "none";
+                    }
+
+                });
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
